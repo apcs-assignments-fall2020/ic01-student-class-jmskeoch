@@ -1,58 +1,21 @@
-public class Student {
-    //Instance vars
-    private String firstName;
-    private String lastName;
-    private int classYear;
+public class Student extends Person {
+   private int classYear;
 
-    //Default constructor
-    public Student() {
-        this.firstName = "John";
-        this.lastName = "Doe";
-        this.classYear = 2022;
-    }   
+   public Student(String a, String b, int c) {
+       super(a, b);
+       this.classYear = c;
+   }
 
-    //Main constructor
-    public Student(String firstName, String lastName, int classYear) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.classYear = classYear;
-    }
+   public Student() {
+       super("John", "Pascal");
+       this.classYear = 2024;
+   }
+   
+   public int getClassYear() {
+       return this.classYear;
+   }
 
-    //Random doSomething method
-    public void doSomething() {
-        System.out.println("I am studying!");
-    }
-
-    //toString method
-    @Override
-    public String toString() {
-        String newString = firstName + " , " + lastName + " , " + classYear;
-        return newString;
-    }
-
-    //Getters
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public int getClassYear() {
-        return this.classYear;
-    }
-
-    //Setters
-    public void setFirstName(String x) {
-        this.firstName = x;
-    }
-
-    public void setLastName(String x) {
-        this.lastName = x;
-    }
-
-    public void setClassYear(int x) {
-        this.classYear = x;
-    }
+   public void setClassYear(int x) {
+       this.classYear = (x < 2025 && x > 2020) ? x : this.classYear;
+   }
 }
